@@ -1,1 +1,47 @@
+# Go build
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Dependency directories
+vendor/
 node_modules/
+
+# Environment files
+.env
+.env.*
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.DS_Store
+*.log
+
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Docker
+*.pid
+docker-compose.override.yml
+docker-compose.*.yml
+
+# Coverage
+coverage*
+*.coverprofile
+*.cov
+
+# Misc
+tmp/
+temp/
+*.bak
+*.old
+*.orig
