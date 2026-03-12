@@ -10,7 +10,7 @@ type Arena struct {
 	//Storing size duplicates state → dangerous.
 }
 
-func NewArena(size uintptr) *Arena {
+func NewArena(size int) *Arena {
 	return &Arena{
 		buffer: make([]byte, size),
 		offset: 0,
