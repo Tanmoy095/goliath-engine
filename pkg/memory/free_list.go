@@ -1,5 +1,7 @@
 package memory
 
+//free list implementation for memory management
+
 import (
 	"sync"
 	"unsafe"
