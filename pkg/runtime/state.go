@@ -13,7 +13,18 @@ const (
 // If we used bool for IsRetry, IsCritical, and IsGPU, Go would waste 3 whole bytes (3 separate wall plates).
 // By using bit-shifting (<<), we are assigning meaning to specific switches on a single 1-byte wall plate
 const (
-	FlagRetry    uint32 = 1 << 0 // 0001
-	FlagCritical uint32 = 1 << 1 // 0010
-	FlagGpu      uint32 = 1 << 2 // 0100
+	// Bit-packed flags (Strictly uint8 to match the struct!)
+	FlagRetry    uint8 = 1 << 0 // 0000 0001
+	FlagCritical uint8 = 1 << 1 // 0000 0010
+	FlagGpu      uint8 = 1 << 2 // 0000 0100
 )
+
+// HasFlag checks if a specific bit is flipped to 1.
+func (t *TaskHeader) HasFlag(flag uint8) bool {
+	return t.Flags&flag != 0
+}
+
+// SetFlag flips a specific bit to 1 without altering the others.
+func (t *TaskHeader) SetFlag(flag uint8) {
+	t.Flags = t.Flags | flag
+}
