@@ -18,13 +18,3 @@ const (
 	FlagCritical uint8 = 1 << 1 // 0000 0010
 	FlagGpu      uint8 = 1 << 2 // 0000 0100
 )
-
-// HasFlag checks if a specific bit is flipped to 1.
-func (t *TaskHeader) HasFlag(flag uint8) bool {
-	return t.Flags&flag != 0
-}
-
-// SetFlag flips a specific bit to 1 without altering the others.
-func (t *TaskHeader) SetFlag(flag uint8) {
-	t.Flags = t.Flags | flag
-}

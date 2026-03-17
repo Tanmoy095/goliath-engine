@@ -27,3 +27,13 @@ func (t *TaskHeader) MarkDone() {
 func (t *TaskHeader) MarkFailed() {
 	atomic.StoreUint32(&t.State, StateFailed)
 }
+
+// HasFlag checks if a specific bit is flipped to 1.
+func (t *TaskHeader) HasFlag(flag uint8) bool {
+	return t.Flags&flag != 0
+}
+
+// SetFlag flips a specific bit to 1 without altering the others.
+func (t *TaskHeader) SetFlag(flag uint8) {
+	t.Flags = t.Flags | flag
+}
